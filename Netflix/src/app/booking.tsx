@@ -7,9 +7,9 @@ const rows = ['A', 'B', 'C', 'D', 'E'];
 const reservedSeats = ['A3', 'B2', 'B3', 'C7', 'C8', 'D1', 'D2', 'E4', 'E5'];
 
 export default function BookingScreen() {
-  const router = useRouter();
-  const { movie = 'Blade Runner 2049' } = useLocalSearchParams<{ movie?: string }>();
-  const [selectedSeats, setSelectedSeats] = useState<string[]>(['A2']);
+const router = useRouter();
+const { movie = 'Blade Runner 2049' } = useLocalSearchParams<{ movie?: string }>();
+const [selectedSeats, setSelectedSeats] = useState<string[]>(['A2']);
 
   const toggleSeat = (seat: string) => {
     if (reservedSeats.includes(seat)) return;

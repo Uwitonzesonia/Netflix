@@ -2,10 +2,13 @@ import { Image } from 'expo-image';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { saveBooking } from '@/data/booking';
 
 export default function SuccessScreen() {
   const router = useRouter();
   const { movie = 'your movie', seats = 'A2', date = '6th of October', time = '20:15' } = useLocalSearchParams<{ movie?: string; seats?: string; date?: string; time?: string }>();
+
+  saveBooking({ movie, seats, date, time, total: `£${(seats.split(',').length * 10).toFixed(2)}` });
 
   return (
     <SafeAreaView style={styles.screen} edges={['top', 'bottom']}>
@@ -21,7 +24,7 @@ export default function SuccessScreen() {
           <Text style={styles.summaryText}>Seats: {seats}</Text>
           <Text style={styles.summaryText}>Viewing time: {time}</Text>
         </View>
-        <Pressable style={styles.proceedButton} onPress={() => router.replace('/home')}>
+        <Pressable style={styles.proceedButton} onPress={() => router.replace('/tickets')}>
           <Text style={styles.proceedText}>Proceed</Text>
         </Pressable>
       </View>

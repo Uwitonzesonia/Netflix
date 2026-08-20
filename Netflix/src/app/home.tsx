@@ -125,7 +125,7 @@ export default function HomeScreen() {
       <View style={styles.bottomBar}>
         <Pressable style={styles.navItem}><Text style={[styles.navIcon, styles.selected]}>⌂</Text><Text style={[styles.navText, styles.selected]}>Home</Text></Pressable>
         <Pressable style={styles.navItem}><Text style={styles.navIcon}>⌕</Text><Text style={styles.navText}>Search</Text></Pressable>
-        <Pressable style={styles.navItem} onPress={() => router.push('/signup')}><Text style={styles.navIcon}>◯</Text><Text style={styles.navText}>Profile</Text></Pressable>
+        <Pressable style={styles.navItem} onPress={() => router.push('/profile')}><Text style={styles.navIcon}>◯</Text><Text style={styles.navText}>Profile</Text></Pressable>
       </View>
     </SafeAreaView>
   );
